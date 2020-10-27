@@ -5,7 +5,7 @@
 $INI        = "generate_ovpn.ini"
 $COMPANY    = IniRead ( $INI, "main", "company", "company" )
 $KEYPASS    = IniRead ( $INI, "main", "keypass", "keypass" )
-$nameCA     = IniRead ( $INI, "main", "CA", "CA" )
+$nameCA     = IniRead ( $INI, "main", "nameCA", "CA" )
 $OPENSSL    = IniRead ( $INI, "main", "openssl", "openssl.exe" )
 
 If Not FileExists($INI) Then
