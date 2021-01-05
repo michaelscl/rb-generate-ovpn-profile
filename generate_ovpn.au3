@@ -5,7 +5,7 @@
 $INI        = "generate_ovpn.ini"
 $COMPANY    = IniRead ( $INI, "main", "company", "company" )
 $KEYPASS    = IniRead ( $INI, "main", "keypass", "keypass" )
-$nameCA     = IniRead ( $INI, "main", "nameCA", "CA" )
+$NAMECA     = IniRead ( $INI, "main", "nameCA", "CA" )
 $OPENSSL    = IniRead ( $INI, "main", "openssl", "openssl.exe" )
 
 If Not FileExists($INI) Then
@@ -17,6 +17,12 @@ If Not FileExists($OPENSSL) Then
     MsgBox(0,"Error", $OPENSSL & " neexistuje")
     Exit
 EndIf
+
+If Not FileExists("cert_export_" & $NAMECA & ".crt") Then
+    MsgBox(0,"Error cert_export_", $NAMECA & ".crt neexistuje")
+    Exit
+EndIf
+
 
 $FileList = _FileListToArray(".","cert_export_*.key")
 If @error = 1 Then
@@ -46,7 +52,7 @@ For $i = 1 To $FileList[0]
     $fileOvpn   = $COMPANY & "-" & $user[$i] & ".ovpn"
     $fileCrt    = "cert_export_" & $user[$i] & ".crt"
     $fileKey    = "cert_export_" & $user[$i] & ".key-nopass"
-    $fileCA     = "cert_export_" & $nameCA & ".crt"
+    $fileCA     = "cert_export_" & $NAMECA & ".crt"
     
     $sizeCrt    = FileGetSize($fileCrt)
     $sizeKey    = FileGetSize($fileKey)
