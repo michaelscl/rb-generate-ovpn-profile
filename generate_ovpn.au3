@@ -76,7 +76,7 @@ For $i = 1 To $FileList[0]
     $copmaresize    = ($sizeCrt + $sizeKey + $sizeTempl + $sizeCA - $sizeOvpn)
     If  $copmaresize > 0 Then
         SplashOff()
-        MsgBox(0,"Error " & $user[$i],"Soucet zdrojovych souboru: " & ($sizeCrt + $sizeKey + $sizeTempl) & " oproti OVPN: " & $sizeOvpn & " je vetší než OVPN, zřejme se nenaimporovalo vše.")
+        MsgBox(0,"Error " & $user[$i],"Soucet zdrojovych souboru: " & ($sizeCrt + $sizeKey + $sizeTempl + $sizeCA) & " oproti konfigu OVPN: " & $sizeOvpn & " je vetší, zřejme se nenaimportovalo vše.")
         Exit
     Endif
 Next
